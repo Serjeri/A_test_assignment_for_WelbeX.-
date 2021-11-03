@@ -1,0 +1,64 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet"  href="{% static '/A_test_assignment_for_WelbeX/style/style.css' %}">
+</head>
+<body>
+<div class="inner" id='block'>
+        <div class="block" >
+            <table class="table" id='table'>
+                <caption>Single Page Application</caption>
+                <thead>
+                  <tr>
+                    <th>Дата</th>
+                    <th>Название</th>
+                    <th>Количество</th>
+                    <th>Расстояние</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 {% for el in table %}
+                  <tr>
+                    <td>{{ el.data }}</td>
+                    <td>{{ el.title }}</td>
+                    <td>{{ el.quantity }}</td>
+                    <td>{{ el.distance }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                <tfoot>
+                </tfoot>
+              </table>
+        </div>
+    </div>
+    
+    <div class="container">
+      <div class="progressiv-container" >
+        <div class="circles" onclick="ajax(1)">1</div>
+        <div class="circles" onclick="ajax(2)">2</div>
+        <div class="circles" onclick="ajax(3)">3</div>
+        <div class="circles" onclick="ajax(4)">4</div>
+        <div class="circles" onclick="ajax(5)">5</div>
+      </div>
+      <button class="btn" id="perv" >Perv</button>
+      {% if table.has_next%}
+      <button class="btn" id="next" >Next</button>
+      {% endif %}
+
+  <div class="filters">
+    <h2>Фильтрация</h2>
+    <form action="" method="get">
+      {{form.as_p}}
+      <p><input type="submit" value="Отправить">
+    </form>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{% static '/A_test_assignment_for_WelbeX/JS/script.js' %}"></script>
+</html>
