@@ -47,18 +47,31 @@
         <div class="circles" onclick="ajax(5)">5</div>
       </div>
       <button class="btn" id="perv" >Perv</button>
-      {% if table.has_next%}
       <button class="btn" id="next" >Next</button>
-      {% endif %}
 
   <div class="filters">
+    <h2>Сортировка</h2>
+    <form action="" method="get">
+      {{sorting.as_p}}
+      <p><input type="submit" value="Отправить">
+    </form>
     <h2>Фильтрация</h2>
     <form action="" method="get">
-      {{form.as_p}}
+       {{valueUI.as_p}}
       <p><input type="submit" value="Отправить">
     </form>
   </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
 <script src="{% static '/A_test_assignment_for_WelbeX/JS/script.js' %}"></script>
+
+<script id="testTmpl" style="display: none" type="text/x-jquery-tmpl">
+  <tr>
+    <td>${data}</td>
+    <td>${title}</td>
+    <td>${quantity}</td>
+    <td>${distance}</td>
+  </tr>
+</script>
 </html>

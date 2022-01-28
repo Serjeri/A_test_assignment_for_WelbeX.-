@@ -7,14 +7,18 @@ class Table(forms.Form):
         ["price", "def"],
          ])
     
+class sortingValium(forms.Form):
     
-class filterValium(forms.Form):
-    #title = forms.CharField(label="Название",required=False)
-    #quantity = forms.IntegerField(label="Количество",required=False)
-    #distance = forms.IntegerField(label="Расстоняние",required=False)
-    filters = forms.ChoiceField(label='Фильтрация', required=False, choices=[
-        ['title','Название'],['quantity','Количество'],['distance','Расстояние']
-    ])
-    #ordering = forms.ChoiceField(label='Сортировка', required=False, choices=[
-    #    ['quantity','Больше'],['-quantity','Меньше'],['=', 'Равно']
-    #])
+    sorting = forms.ChoiceField(label='Сортировка', required=False, choices=[
+        [ 'id',' '],["title",'Название'],['quantity','Количество'],['distance','Расстояние']])
+    
+    
+class valueFilterUI(forms.Form):
+
+    fields_name = forms.ChoiceField(label='Выбор колонки', required=False, choices=[
+       ["title",'Название'],['quantity','Количество'],['distance','Расстояние']])
+
+    expressions = forms.ChoiceField(label='Выбор выражения', required=False, choices=[
+       ['gt','>'],['lt','<'],['equal','='],['contains','содержит']])
+
+    value = forms.CharField(label='Введите значение', required=False)
